@@ -1,25 +1,787 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Test Phaser Game</title>
-    <script src="https://cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.js"></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Advanced CBT PDF Quizmaker</title>
+
+  <!-- Simple CSS (scoped in this file) -->
+  <style>
+    :root{
+      --bg:#0f1720; --card:#0b1220; --muted:#9aa4b2; --accent:#7c3aed; --accent-2:#06b6d4;
+      --good:#16a34a; --bad:#dc2626; --review:#f59e0b;
+      --glass: rgba(255,255,255,0.03);
+      color-scheme: dark;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;background:var(--bg);color:#e6eef8;line-height:1.4}
+    .app{max-width:1200px;margin:24px auto;padding:18px;display:grid;grid-template-columns:280px 1fr 320px;gap:18px}
+    header{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
+    h1{margin:0;font-size:18px;color:var(--accent)}
+    .top-actions{display:flex;gap:8px;align-items:center}
+    .btn{background:var(--accent);border:none;color:white;padding:8px 12px;border-radius:8px;cursor:pointer;font-weight:600}
+    .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted);font-weight:600}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
+    .left{height:calc(100vh - 160px);overflow:auto;padding:12px}
+    .center{height:calc(100vh - 160px);overflow:auto;padding:18px}
+    .right{height:calc(100vh - 160px);overflow:auto;padding:12px}
+    .file-row{display:flex;gap:8px;align-items:center;margin-bottom:12px}
+    .small{font-size:13px;color:var(--muted)}
+    input[type=file]{display:none}
+    label.file-btn{background:var(--accent-2);color:black;padding:8px 10px;border-radius:8px;cursor:pointer;font-weight:700}
+    .palette{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+    .qbox{padding:10px;border-radius:8px;background:var(--glass);text-align:center;cursor:pointer;border:1px solid rgba(255,255,255,0.02);user-select:none}
+    .qbox.unanswered{background:transparent}
+    .qbox.answered{background:linear-gradient(90deg,#064e3b22,#16a34a22);border:1px solid rgba(22,163,74,0.12)}
+    .qbox.marked{background:linear-gradient(90deg,#713f12aa,#f59e0b22);border:1px solid rgba(245,158,11,0.12)}
+    .qbox.flagged{background:linear-gradient(90deg,#4c1d95aa,#7c3aed22);border:1px solid rgba(124,58,237,0.12)}
+    .qbox:hover{transform:translateY(-2px)}
+    .question-title{font-weight:700;margin-bottom:6px}
+    .options{display:grid;gap:8px}
+    .opt-btn{padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.03);background:transparent;cursor:pointer;text-align:left}
+    .opt-btn.selected{background:linear-gradient(90deg,#06b6d422,#06b6d444);border:1px solid rgba(6,182,212,0.14)}
+    .controls{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+    .muted{color:var(--muted);font-size:13px}
+    .timer{font-weight:800;font-size:18px;color:var(--accent)}
+    .small-pill{padding:6px 8px;border-radius:8px;background:rgba(255,255,255,0.02);font-size:13px}
+    .right .section{margin-bottom:12px}
+    .preview{background:rgba(255,255,255,0.02);padding:8px;border-radius:8px;font-size:13px}
+    .result-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+    .leaderboard{max-height:180px;overflow:auto}
+    footer{grid-column:1/-1;margin-top:8px;text-align:center;color:var(--muted);font-size:13px;padding-bottom:30px}
+    .toggle{display:flex;align-items:center;gap:6px}
+    .flex{display:flex;align-items:center;gap:8px}
+    .settings-row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:8px}
+    @media(max-width:980px){.app{grid-template-columns:1fr; padding:10px}header{flex-direction:column;align-items:flex-start;gap:8px}.right{order:3}.left{order:2}.center{order:1}}
+  </style>
 </head>
 <body>
-    <div id="game-container"></div>
-    <script>
-    const config = {
-        type: Phaser.AUTO,
-        width: 600,
-        height: 400,
-        parent: 'game-container',
-        scene: {
-            create: function () {
-                this.add.text(100, 100, 'Phaser Works!', {fontSize: '32px', fill: '#fff'});
-            }
+  <div class="app">
+    <header>
+      <div style="display:flex;gap:12px;align-items:center">
+        <h1>Advanced CBT — PDF Quizmaker</h1>
+        <div class="small">Offline • GitHub Pages ready</div>
+      </div>
+
+      <div class="top-actions">
+        <button id="themeBtn" class="btn ghost">Toggle Theme</button>
+        <button id="exportBtn" class="btn">Export Qs</button>
+        <button id="downloadResultsBtn" class="btn ghost">Download Results</button>
+        <button id="resetBtn" class="btn ghost">Reset</button>
+      </div>
+    </header>
+
+    <!-- LEFT: palette & upload -->
+    <aside class="left card">
+      <div class="file-row">
+        <label class="file-btn" for="pdfInput">Upload PDF</label>
+        <input id="pdfInput" type="file" accept=".pdf" />
+        <label class="file-btn" for="jsonInput" style="background:#f97316">Upload JSON/CSV</label>
+        <input id="jsonInput" type="file" accept=".json,.csv" />
+      </div>
+
+      <div class="settings-row">
+        <div class="small-pill">Shuffle Qs <input id="shuffleQs" type="checkbox" style="margin-left:6px"/></div>
+        <div class="small-pill">Shuffle Opts <input id="shuffleOpts" type="checkbox" style="margin-left:6px"/></div>
+        <div class="small-pill">Per-Q Time <input id="perQtime" type="number" value="30" min="5" style="width:70px;margin-left:6px"/>s</div>
+      </div>
+
+      <div style="margin-top:12px;margin-bottom:8px" class="small">Question Palette</div>
+      <div id="palette" class="palette"></div>
+
+      <div style="margin-top:12px">
+        <div class="small">Legend</div>
+        <div style="display:flex;gap:8px;margin-top:8px">
+          <div class="small-pill">Answered</div>
+          <div class="small-pill" style="background:linear-gradient(90deg,#713f12aa,#f59e0b22)">Marked</div>
+          <div class="small-pill" style="background:linear-gradient(90deg,#064e3b22,#16a34a22)">Answered</div>
+          <div class="small-pill" style="background:linear-gradient(90deg,#4c1d95aa,#7c3aed22)">Flagged</div>
+        </div>
+      </div>
+
+      <div style="margin-top:12px">
+        <div class="small">Upload answer key (optional)</div>
+        <input id="ansKey" type="file" accept=".json,.csv" />
+      </div>
+    </aside>
+
+    <!-- CENTER: Q display -->
+    <main class="center card">
+      <div id="topInfo" style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+        <div class="muted" id="qIndex">Q -</div>
+        <div class="muted">Exam: <strong id="examTitle">Untitled</strong></div>
+      </div>
+
+      <div id="questionCard" class="card" style="padding:18px">
+        <div class="question-title" id="questionText">Upload a PDF or JSON to begin.</div>
+        <div class="small muted" id="questionMeta"></div>
+
+        <div id="options" class="options" style="margin-top:12px"></div>
+
+        <div class="controls" style="margin-top:16px">
+          <button id="saveNext" class="btn">Save & Next (S)</button>
+          <button id="clearResp" class="btn ghost">Clear</button>
+          <button id="markReview" class="btn ghost">Mark for Review (M)</button>
+          <button id="flagBtn" class="btn ghost">Flag</button>
+          <button id="submitExam" class="btn" style="margin-left:auto;background:#ef4444">Submit Exam</button>
+        </div>
+
+        <div style="margin-top:10px" class="small muted">Keyboard: 1-4 select • N Next • P Prev • S Save • M Mark • F Flag</div>
+      </div>
+
+      <div style="margin-top:12px;display:flex;gap:8px;align-items:center">
+        <div class="small">Progress</div>
+        <div id="progressBar" style="flex:1;height:10px;background:rgba(255,255,255,0.03);border-radius:6px;overflow:hidden">
+          <div id="progressFill" style="height:100%;width:0%;background:linear-gradient(90deg,var(--accent),var(--accent-2));"></div>
+        </div>
+        <div id="progressText" class="small">0/0</div>
+      </div>
+    </main>
+
+    <!-- RIGHT: timer, stats -->
+    <aside class="right card">
+      <div class="section">
+        <div class="small">Global Timer</div>
+        <div class="timer" id="globalTimer">00:00:00</div>
+      </div>
+
+      <div class="section">
+        <div class="small">Per-question timer</div>
+        <div class="timer" id="perTimer">00s</div>
+      </div>
+
+      <div class="section">
+        <div class="small">Quick actions</div>
+        <div style="margin-top:8px;display:flex;flex-direction:column;gap:8px">
+          <button id="prevBtn" class="btn ghost">Previous (P)</button>
+          <button id="nextBtn" class="btn">Next (N)</button>
+          <button id="jumpBtn" class="btn ghost">Jump to Unanswered</button>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="small">Stats</div>
+        <div style="margin-top:8px" class="preview">
+          <div>Attempted: <span id="statAttempted">0</span></div>
+          <div>Marked: <span id="statMarked">0</span></div>
+          <div>Flagged: <span id="statFlagged">0</span></div>
+          <div>Unattempted: <span id="statUnattempted">0</span></div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="small">Leaderboard</div>
+        <div class="leaderboard preview" id="leaderboard"></div>
+      </div>
+
+      <div class="section">
+        <div class="small">Import / Export</div>
+        <div style="margin-top:8px;display:flex;gap:8px">
+          <button id="importKey" class="btn ghost">Import Ans Key</button>
+          <button id="exportResults" class="btn ghost">Export Results</button>
+        </div>
+      </div>
+    </aside>
+
+    <footer class="small muted">Made for practice & JEE-style CBT — works offline in browser • Save progress with "Reset"</footer>
+  </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+<script>
+/* ========= CORE APP JS =========
+   Single-file advanced CBT logic.
+   - Use this as-is (drop into GitHub Pages)
+   - pdf.js worker set to CDN below (required)
+*/
+pdfjsLib.GlobalWorkerOptions.workerSrc =
+  "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js";
+
+/* ---------- STATE ---------- */
+let state = {
+  examTitle: "Untitled",
+  questions: [], // {id,question,options:[...],answerIndex:-1 (if known), userAnswer:null, marked:false, flagged:false}
+  currentIndex: 0,
+  globalSeconds: 0,      // total elapsed exam seconds
+  perQuestionSeconds: 0, // elapsed on this question
+  perQuestionLimit: 30,  // default, UI controls
+  perQuestionAutoMove: true,
+  shuffleQs: false,
+  shuffleOpts: false,
+  running: false,
+  answerKeyLoaded: false
+};
+
+/* ---------- ELEMENTS ---------- */
+const pdfInput = document.getElementById("pdfInput");
+const jsonInput = document.getElementById("jsonInput");
+const ansKeyInput = document.getElementById("ansKey");
+const paletteEl = document.getElementById("palette");
+const questionTextEl = document.getElementById("questionText");
+const optionsEl = document.getElementById("options");
+const qIndexEl = document.getElementById("qIndex");
+const perTimerEl = document.getElementById("perTimer");
+const globalTimerEl = document.getElementById("globalTimer");
+const saveNextBtn = document.getElementById("saveNext");
+const clearRespBtn = document.getElementById("clearResp");
+const markReviewBtn = document.getElementById("markReview");
+const flagBtn = document.getElementById("flagBtn");
+const nextBtn = document.getElementById("nextBtn");
+const prevBtn = document.getElementById("prevBtn");
+const progressFill = document.getElementById("progressFill");
+const progressText = document.getElementById("progressText");
+const statAttempted = document.getElementById("statAttempted");
+const statMarked = document.getElementById("statMarked");
+const statFlagged = document.getElementById("statFlagged");
+const statUnattempted = document.getElementById("statUnattempted");
+const perQtimeInput = document.getElementById("perQtime");
+const shuffleQsInput = document.getElementById("shuffleQs");
+const shuffleOptsInput = document.getElementById("shuffleOpts");
+const exportBtn = document.getElementById("exportBtn");
+const downloadResultsBtn = document.getElementById("downloadResultsBtn");
+const resetBtn = document.getElementById("resetBtn");
+const examTitleEl = document.getElementById("examTitle");
+const leaderboardEl = document.getElementById("leaderboard");
+const submitExamBtn = document.getElementById("submitExam");
+const themeBtn = document.getElementById("themeBtn");
+const exportResultsBtn = document.getElementById("exportResults");
+const importKeyBtn = document.getElementById("importKey");
+const downloadResultsRealBtn = document.getElementById("downloadResultsBtn");
+
+/* ---------- UTIL ---------- */
+const uid = (n=6)=>Math.random().toString(36).slice(2,2+n);
+const secondsToHHMMSS = s=>{
+  const h=Math.floor(s/3600), m=Math.floor((s%3600)/60), sec=s%60;
+  return `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(sec).padStart(2,'0')}`;
+};
+const safetext = t => String(t||"").replace(/\s+/g,' ').trim();
+
+/* ---------- PARSERS ---------- */
+/* Smart extraction from PDF text. Heuristics:
+   - Look for blocks starting with "1." or "1)" or "Q1." then options as (a) (b) (c) (d)
+   - Also support inline like "1. Q ... a) ... b) ... c) ... d) ..."
+*/
+async function extractTextFromPDFFile(file){
+  const arrayBuf = await file.arrayBuffer();
+  const pdf = await pdfjsLib.getDocument({data:arrayBuf}).promise;
+  let fullText = "";
+  for(let p=1;p<=pdf.numPages;p++){
+    const page = await pdf.getPage(p);
+    const content = await page.getTextContent();
+    const pageText = content.items.map(i=>i.str).join(" ");
+    fullText += "\n" + pageText;
+  }
+  return fullText;
+}
+
+function parseQuestionsFromText(raw){
+  // normalize
+  let text = raw.replace(/\r/g,' ').replace(/\n/g,' ').replace(/\t/g,' ');
+  // remove page markers/common noise
+  text = text.replace(/Page\s*\d+/gi,' ').replace(/Section\s*[A-Z]/gi,' ');
+  // pattern to match question number blocks
+  const blockRegex = /(?:\b(\d{1,3})[.)]\s*)(.*?)(?=(?:\b\d{1,3}[.)]\s)|$)/g; // capture numbered blocks
+  const matches = [...text.matchAll(blockRegex)];
+  const out = [];
+  for(const m of matches){
+    const qnum = m[1], block = m[2].trim();
+    // try to parse options: look for (a) or a) or (A) markers
+    let opts = [];
+    const optRegex = /(?:\(?[aA][\)\.\-]|\s[aA][\)\.\-])\s*(.*?)(?=(?:\(?[bB][\)\.\-])|\s[bB][\)\.\-]|$)/g;
+    // quick approach: split by (a) (b) (c) (d)
+    const abcd = block.split(/(?:\(|\s)(?:a\)|A\)|a\)|a\.|\sA\)|\sA\.|\sA\))/i);
+    // fallback more robust:
+    const optFind = /(?:\(?a\)|a\)|A\)|\(a\)|\sa\)|\sa\.)\s*(.+?)(?=(?:\(?b\)|b\)|B\)|\(b\)|\sb\)|\sb\.)/i;
+    // Attempt with common full pattern:
+    const fullOptRegex = /(?:\(a\)|a\)|A\)|\(A\))\s*(.*?)\s*(?:\(b\)|b\)|B\)|\(B\))\s*(.*?)\s*(?:\(c\)|c\)|C\)|\(C\))\s*(.*?)\s*(?:\(d\)|d\)|D\)|\(D\))\s*(.*?)(?=$|\d+[.)])/i;
+    const fullMatch = block.match(fullOptRegex);
+    let questionText = block;
+    if(fullMatch){
+      questionText = block.slice(0, block.indexOf(fullMatch[0]));
+      opts = [fullMatch[1], fullMatch[2], fullMatch[3], fullMatch[4]].map(safetext);
+    } else {
+      // fallback: try to split by letters sequences
+      const parts = block.split(/(?:\s[aA]\)|\sA\)|\(a\)|\(A\)|\sa\.)/);
+      if(parts.length>1){
+        questionText = parts[0];
+        const rest = block.slice(parts[0].length);
+        // split rest by b)/c)/d)
+        const o = rest.split(/(?:\(?b\)|b\)|B\)|\(b\)|\sb\.)/).map(s=>s.trim());
+        // try extracting a,b,c,d by progressive matching
+        const optA = (o[0]||'').replace(/^(?:\(a\)|a\)|A\)|\(A\)|\sa\.)/i,'').trim();
+        // now try to find b c d inside o[1]...
+        let candidates = rest.match(/(?:\(a\)|a\)|\(A\)|A\)|\sa\.)\s*(.*?)(?:\(b\)|b\)|B\)|\(b\)|\sb\.)\s*(.*?)(?:\(c\)|c\)|C\)|\(c\)|\sc\.)\s*(.*?)(?:\(d\)|d\)|D\)|\(d\)|\sd\.)\s*(.*)/i);
+        if(candidates){
+          opts = [candidates[1], candidates[2], candidates[3], candidates[4]].map(safetext);
+        } else {
+          // worst-case: try to find 4 answer lines separated by two or more spaces/newlines
+          const rough = rest.split(/\s{2,}|\s·\s| \- /).map(s=>s.trim()).filter(Boolean);
+          if(rough.length>=4) opts = rough.slice(0,4).map(safetext);
         }
+      } else {
+        // no options discovered
+        opts = [];
+      }
+    }
+    // clean question text
+    questionText = safetext(questionText.replace(/^[\d\.\)]*\s*/,''));
+    if(questionText.length>6 && opts.length>=2){
+      out.push({ id: uid(), q: questionText, options: opts.slice(0,4), answerIndex: -1 });
+    }
+  }
+  // final cleanup: unique & filter
+  const ids = new Set();
+  const cleaned = out.filter(o=>{
+    const key = (o.q+o.options.join('|')).slice(0,200);
+    if(ids.has(key)) return false;
+    ids.add(key);
+    return true;
+  });
+  return cleaned;
+}
+
+/* CSV/JSON import helpers */
+function parseCSV(text){
+  // CSV format: question,opt1,opt2,opt3,opt4,correctIndex(1-4 optional)
+  const lines = text.split(/\r?\n/).map(l=>l.trim()).filter(Boolean);
+  const out = [];
+  for(const l of lines){
+    const parts = l.split(',').map(p=>p.trim());
+    if(parts.length>=3){
+      const q = parts[0], opts = parts.slice(1,5);
+      const ans = parts[5] ? (parseInt(parts[5]) - 1) : -1;
+      out.push({id:uid(), q: safetext(q), options: opts.map(safetext), answerIndex: isNaN(ans)?-1:ans});
+    }
+  }
+  return out;
+}
+function parseJSONImport(text){
+  try{
+    const data = JSON.parse(text);
+    // expect array of {question/options/answerIndex}
+    const arr = Array.isArray(data)?data:(data.questions||[]);
+    return arr.map(x=>({id:uid(), q: safetext(x.question||x.q||x.text), options:(x.options||x.opts||x.choices||[]).map(safetext), answerIndex:(typeof x.answerIndex==='number'?x.answerIndex:(typeof x.answer==='number'?x.answer:-1))}));
+  }catch(e){return []}
+}
+
+/* ---------- UI RENDER ---------- */
+function refreshPalette(){
+  const out = state.questions.map((q,i)=>{
+    const cls = q.userAnswer==null ? (q.marked? 'qbox marked': (q.flagged?'qbox flagged':'qbox unanswered')) : 'qbox answered';
+    return `<div data-i="${i}" class="${cls}" title="Question ${i+1}">${i+1}</div>`;
+  }).join('');
+  paletteEl.innerHTML = out;
+  // attach handlers
+  paletteEl.querySelectorAll('[data-i]').forEach(el=>{
+    el.onclick = ()=>{ goToQuestion(parseInt(el.dataset.i)); };
+  });
+  updateStats();
+}
+
+function showCurrentQuestion(){
+  if(!state.questions.length){
+    questionTextEl.textContent = "No questions loaded. Upload a PDF / import JSON or CSV.";
+    optionsEl.innerHTML = '';
+    qIndexEl.textContent = 'Q -';
+    return;
+  }
+  const q = state.questions[state.currentIndex];
+  qIndexEl.textContent = `Q ${state.currentIndex+1} / ${state.questions.length}`;
+  examTitleEl.textContent = state.examTitle || 'Untitled';
+  questionTextEl.textContent = q.q;
+  // options may have been shuffled - show current stored order or original
+  let opts = q.options.slice();
+  // if shuffleOpts enabled and not already shuffled per question, perform deterministic shuffle
+  // but we'll support a displayed order stored in q.displayOrder
+  if(!q.displayOrder) q.displayOrder = opts.map((_,i)=>i);
+  const disp = q.displayOrder;
+  optionsEl.innerHTML = '';
+  disp.forEach((oi,idx)=>{
+    const text = opts[oi];
+    const btn = document.createElement('button');
+    btn.className = 'opt-btn';
+    btn.innerHTML = `<div style="font-weight:700;margin-bottom:4px">${String.fromCharCode(65+idx)}.</div><div>${text}</div>`;
+    if(q.userAnswer!=null && q.userAnswer === oi) btn.classList.add('selected');
+    btn.onclick = ()=>{
+      q.userAnswer = oi;
+      // mark answered
+      refreshPalette();
+      showCurrentQuestion();
     };
-    new Phaser.Game(config);
-    </script>
+    optionsEl.appendChild(btn);
+  });
+
+  // per Q timer set/reset
+  resetPerQuestionTimer();
+  // update UI states (mark/flag labels)
+  markReviewBtn.textContent = q.marked ? 'Unmark Review (M)' : 'Mark for Review (M)';
+  flagBtn.textContent = q.flagged ? 'Unflag' : 'Flag';
+  updateProgress();
+}
+
+/* ---------- TIMERS ---------- */
+let globalInterval=null, perInterval=null;
+function startTimers(){
+  if(globalInterval) clearInterval(globalInterval);
+  globalInterval = setInterval(()=>{
+    state.globalSeconds++;
+    globalTimerEl.textContent = secondsToHHMMSS(state.globalSeconds);
+  },1000);
+  resetPerQuestionTimer();
+}
+function stopTimers(){
+  if(globalInterval) clearInterval(globalInterval);
+  if(perInterval) clearInterval(perInterval);
+  globalInterval = perInterval = null;
+}
+function resetPerQuestionTimer(){
+  if(perInterval) clearInterval(perInterval);
+  state.perQuestionSeconds = 0;
+  perTimerEl.textContent = `${state.perQuestionLimit}s`;
+  perInterval = setInterval(()=>{
+    state.perQuestionSeconds++;
+    const left = Math.max(0, state.perQuestionLimit - state.perQuestionSeconds);
+    perTimerEl.textContent = `${left}s`;
+    if(left<=0){
+      clearInterval(perInterval);
+      // if auto move enabled, go next
+      if(state.perQuestionAutoMove) nextQuestion();
+    }
+  },1000);
+}
+
+/* ---------- NAV / ACTIONS ---------- */
+function goToQuestion(i){
+  if(i<0 || i>=state.questions.length) return;
+  state.currentIndex = i;
+  saveState();
+  showCurrentQuestion();
+}
+
+function nextQuestion(){
+  if(state.currentIndex < state.questions.length - 1){
+    state.currentIndex++;
+    saveState();
+    showCurrentQuestion();
+  } else {
+    // reached end
+    alert('End of exam reached.');
+  }
+}
+
+function prevQuestion(){
+  if(state.currentIndex > 0){
+    state.currentIndex--;
+    saveState();
+    showCurrentQuestion();
+  }
+}
+
+function saveAndNext(){
+  // leave userAnswer as is; mark as answered if selected
+  const q = state.questions[state.currentIndex];
+  if(q.userAnswer==null){
+    // do nothing special
+  }
+  q.marked = false; // optional: clear mark on save?
+  saveState();
+  nextQuestion();
+}
+
+function clearResponse(){
+  const q = state.questions[state.currentIndex];
+  q.userAnswer = null;
+  refreshPalette();
+  showCurrentQuestion();
+}
+
+function toggleMark(){
+  const q = state.questions[state.currentIndex];
+  q.marked = !q.marked;
+  refreshPalette();
+}
+
+function toggleFlag(){
+  const q = state.questions[state.currentIndex];
+  q.flagged = !q.flagged;
+  refreshPalette();
+}
+
+/* ---------- STATS / PROGRESS ---------- */
+function updateProgress(){
+  const total = state.questions.length;
+  const attempted = state.questions.filter(q=>q.userAnswer!=null).length;
+  const marked = state.questions.filter(q=>q.marked).length;
+  const flagged = state.questions.filter(q=>q.flagged).length;
+  const unattempted = total - attempted;
+  progressText.textContent = `${attempted}/${total}`;
+  const pct = total? Math.round((attempted/total)*100) : 0;
+  progressFill.style.width = pct + '%';
+  statAttempted.textContent = attempted;
+  statMarked.textContent = marked;
+  statFlagged.textContent = flagged;
+  statUnattempted.textContent = unattempted;
+}
+
+function updateStats(){
+  updateProgress();
+  // update palette colors already done in refreshPalette
+}
+
+/* ---------- IMPORT/EXPORT ---------- */
+function importQuestions(arr){
+  // arr: [{q,options,answerIndex?}]
+  state.questions = arr.map((x,i)=>{
+    let opts = (x.options || x.opts || []).slice(0,4).map(s=>s||'');
+    if(state.shuffleOpts){
+      const order = [0,1,2,3].sort(()=>Math.random()-0.5);
+      // store displayOrder mapping from displayed index to original option index
+      return { id: x.id || uid(), q: x.q || x.question || '', options: opts, userAnswer:null, marked:false, flagged:false, answerIndex: typeof x.answerIndex==='number'?x.answerIndex:-1, displayOrder: order };
+    } else {
+      return { id: x.id || uid(), q: x.q || x.question || '', options: opts, userAnswer:null, marked:false, flagged:false, answerIndex: typeof x.answerIndex==='number'?x.answerIndex:-1 };
+    }
+  });
+  // shuffle questions
+  if(state.shuffleQs) state.questions = state.questions.sort(()=>Math.random()-0.5);
+  saveState();
+  refreshPalette();
+  showCurrentQuestion();
+  startTimers();
+}
+
+function exportQuestions(){
+  const data = state.questions.map(q=>({question:q.q, options:q.options, answerIndex:q.answerIndex}));
+  const blob = new Blob([JSON.stringify(data, null, 2)],{type:'application/json'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a'); a.href = url; a.download = 'questions.json'; a.click();
+  URL.revokeObjectURL(url);
+}
+
+/* ---------- ANSWER KEY / AUTOGRADE ---------- */
+function loadAnswerKeyFromArr(arr){
+  // arr items contain question text or id map -> answerIndex
+  // best-effort: match by question text substring
+  const map = {};
+  arr.forEach(it=>{
+    const k = safetext(it.q||it.question||'').slice(0,80).toLowerCase();
+    map[k] = typeof it.answerIndex==='number'?it.answerIndex: (typeof it.answer==='number'?it.answer:-1);
+  });
+  let matched=0;
+  state.questions.forEach(q=>{
+    const k = safetext(q.q).slice(0,80).toLowerCase();
+    if(map[k] !== undefined && map[k] !== -1){
+      q.answerIndex = map[k];
+      matched++;
+    }
+  });
+  state.answerKeyLoaded = matched>0;
+  alert(`Answer key loaded. Matched ${matched} questions.`);
+  saveState();
+}
+
+/* ---------- SUBMIT / GRADE / RESULTS ---------- */
+function submitExam(){
+  // confirm
+  if(!confirm('Submit exam? You can still export results.')) return;
+  stopTimers();
+  // grade if answerIndex present
+  let correct=0, attempted=0;
+  state.questions.forEach(q=>{
+    if(q.userAnswer!=null) attempted++;
+    if(q.answerIndex>=0 && q.userAnswer!=null){
+      if(q.userAnswer === q.answerIndex) correct++;
+    }
+  });
+  const score = correct;
+  const total = state.questions.filter(q=>q.answerIndex>=0).length || state.questions.length;
+  // store result in leaderboard
+  const name = prompt('Enter candidate name for leaderboard (optional):') || 'Anonymous';
+  const entry = { name, score, totalPossible: total, attempted, timestamp: Date.now() };
+  const board = JSON.parse(localStorage.getItem('cbt_leaderboard')||'[]');
+  board.push(entry);
+  localStorage.setItem('cbt_leaderboard', JSON.stringify(board));
+  renderLeaderboard();
+  // present results page (simple)
+  const percent = total? Math.round((score/total)*100):0;
+  alert(`Exam submitted.\nScore: ${score}/${total} (${percent}%)\nAttempted: ${attempted}`);
+}
+
+/* ---------- RESULTS EXPORT ---------- */
+function downloadResultsCSV(){
+  const rows = [['Q No','Question','SelectedOptionIndex','SelectedOptionText','CorrectIndex','CorrectText','Marked','Flagged']];
+  state.questions.forEach((q,i)=>{
+    const selectedIndex = q.userAnswer == null ? '' : q.userAnswer;
+    const selectedText = selectedIndex===''? '' : q.options[selectedIndex]||'';
+    const correctIdx = (q.answerIndex>=0)? q.answerIndex : '';
+    const correctText = (q.answerIndex>=0)? (q.options[q.answerIndex]||'') : '';
+    rows.push([i+1, `"${q.q.replace(/"/g,'""')}"`, selectedIndex, `"${selectedText.replace(/"/g,'""')}"`, correctIdx, `"${correctText.replace(/"/g,'""')}"`, q.marked?1:0, q.flagged?1:0]);
+  });
+  const csv = rows.map(r=>r.join(',')).join('\n');
+  const blob = new Blob([csv],{type:'text/csv'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a'); a.href = url; a.download = 'results.csv'; a.click();
+  URL.revokeObjectURL(url);
+}
+
+/* ---------- PERSISTENCE ---------- */
+function saveState(){
+  localStorage.setItem('cbt_state', JSON.stringify({
+    examTitle: state.examTitle,
+    questions: state.questions,
+    currentIndex: state.currentIndex,
+    globalSeconds: state.globalSeconds,
+    perQuestionLimit: state.perQuestionLimit,
+    shuffleQs: state.shuffleQs,
+    shuffleOpts: state.shuffleOpts
+  }));
+}
+function loadState(){
+  const s = JSON.parse(localStorage.getItem('cbt_state')||'null');
+  if(s){
+    state.examTitle = s.examTitle || state.examTitle;
+    state.questions = s.questions || [];
+    state.currentIndex = s.currentIndex || 0;
+    state.globalSeconds = s.globalSeconds || 0;
+    state.perQuestionLimit = s.perQuestionLimit || state.perQuestionLimit;
+    state.shuffleQs = s.shuffleQs || false;
+    state.shuffleOpts = s.shuffleOpts || false;
+  }
+  // load leader board
+  renderLeaderboard();
+  refreshPalette();
+  showCurrentQuestion();
+  if(state.questions.length) startTimers();
+}
+
+/* ---------- LEADERBOARD ---------- */
+function renderLeaderboard(){
+  const board = JSON.parse(localStorage.getItem('cbt_leaderboard')||'[]').slice(-20).reverse();
+  leaderboardEl.innerHTML = board.map(e=>`<div style="padding:6px;border-bottom:1px dashed rgba(255,255,255,0.02)">${e.name} — ${e.score}/${e.totalPossible} • ${new Date(e.timestamp).toLocaleString()}</div>`).join('') || '<div class="muted">No entries yet</div>';
+}
+
+/* ---------- EVENT BINDING ---------- */
+pdfInput.addEventListener('change', async (ev)=>{
+  const f = ev.target.files[0];
+  if(!f) return;
+  try{
+    const text = await extractTextFromPDFFile(f);
+    const parsed = parseQuestionsFromText(text);
+    if(parsed.length===0) return alert('No MCQs detected. Try a different PDF or use the JSON/CSV import.');
+    // convert parsed to our format
+    const arr = parsed.map(p=>({id:uid(), q:p.q, options:p.options, answerIndex:-1}));
+    state.examTitle = f.name.replace(/\.[^/.]+$/,'');
+    // use settings
+    state.perQuestionLimit = parseInt(perQtimeInput.value)||30;
+    state.shuffleQs = shuffleQsInput.checked;
+    state.shuffleOpts = shuffleOptsInput.checked;
+    importQuestions(arr);
+  }catch(err){
+    console.error(err);
+    alert('Failed to read PDF. Try again or open console for details.');
+  }
+});
+
+jsonInput.addEventListener('change', async (ev)=>{
+  const f = ev.target.files[0];
+  if(!f) return;
+  const text = await f.text();
+  let arr = [];
+  if(f.name.endsWith('.csv')) arr = parseCSV(text);
+  else arr = parseJSONImport(text);
+  if(arr.length===0) return alert('No questions found in file.');
+  state.examTitle = f.name.replace(/\.[^/.]+$/,'');
+  state.perQuestionLimit = parseInt(perQtimeInput.value)||30;
+  state.shuffleQs = shuffleQsInput.checked;
+  state.shuffleOpts = shuffleOptsInput.checked;
+  importQuestions(arr);
+});
+
+ansKeyInput.addEventListener('change', async (ev)=>{
+  const f = ev.target.files[0];
+  if(!f) return;
+  const text = await f.text();
+  let arr = [];
+  if(f.name.endsWith('.csv')) arr = parseCSV(text);
+  else arr = parseJSONImport(text);
+  if(arr.length===0) return alert('No key found.');
+  loadAnswerKeyFromArr(arr);
+});
+
+/* Buttons */
+saveNextBtn.onclick = ()=>{ saveAndNext(); refreshPalette(); updateStats(); };
+clearRespBtn.onclick = ()=>{ clearResponse(); updateStats(); };
+markReviewBtn.onclick = ()=>{ toggleMark(); updateStats(); };
+flagBtn.onclick = ()=>{ toggleFlag(); updateStats(); };
+nextBtn.onclick = ()=>{ nextQuestion(); refreshPalette(); updateStats(); };
+prevBtn.onclick = ()=>{ prevQuestion(); refreshPalette(); updateStats(); };
+document.getElementById('jumpBtn').onclick = ()=>{
+  const idx = state.questions.findIndex(q=>q.userAnswer==null);
+  if(idx>=0) goToQuestion(idx); else alert('No unanswered questions.');
+};
+
+exportBtn.onclick = ()=>exportQuestions();
+downloadResultsBtn.onclick = ()=>downloadResultsCSV();
+resetBtn.onclick = ()=>{
+  if(confirm('Reset all saved state?')){
+    localStorage.removeItem('cbt_state');
+    localStorage.removeItem('cbt_leaderboard');
+    location.reload();
+  }
+};
+submitExamBtn.onclick = ()=> submitExam();
+themeBtn.onclick = ()=>{
+  if(document.documentElement.style.filter) {
+    document.documentElement.style.filter='';
+  } else {
+    // simple invert for demo (toggle)
+    document.documentElement.style.filter = document.documentElement.style.filter? '':'';
+  }
+};
+
+/* settings inputs */
+perQtimeInput.onchange = ()=>{ state.perQuestionLimit = parseInt(perQtimeInput.value) || 30; saveState(); };
+shuffleQsInput.onchange = ()=>{ state.shuffleQs = shuffleQsInput.checked; saveState(); };
+shuffleOptsInput.onchange = ()=>{ state.shuffleOpts = shuffleOptsInput.checked; saveState(); };
+
+/* keyboard shortcuts */
+document.addEventListener('keydown',(e)=>{
+  if(!state.questions.length) return;
+  if(e.key>='1' && e.key<='4'){
+    // select option
+    const idx = parseInt(e.key,10)-1;
+    const q = state.questions[state.currentIndex];
+    // map displayed index -> option index
+    const displayedOrder = q.displayOrder || q.options.map((_,i)=>i);
+    const selectedOriginalIndex = displayedOrder[idx];
+    if(selectedOriginalIndex!==undefined){
+      q.userAnswer = selectedOriginalIndex;
+      refreshPalette();
+      showCurrentQuestion();
+    }
+  }else if(e.key==='n' || e.key==='N') nextQuestion();
+  else if(e.key==='p' || e.key==='P') prevQuestion();
+  else if(e.key==='s' || e.key==='S') saveAndNext();
+  else if(e.key==='m' || e.key==='M') toggleMark();
+  else if(e.key==='f' || e.key==='F') toggleFlag();
+});
+
+/* ---------- INIT ---------- */
+function init(){
+  // load settings from last state
+  loadState();
+  // UI sync
+  perQtimeInput.value = state.perQuestionLimit;
+  shuffleQsInput.checked = state.shuffleQs;
+  shuffleOptsInput.checked = state.shuffleOpts;
+  // initial render
+  refreshPalette();
+  showCurrentQuestion();
+  // auto start timers if loaded
+  if(state.questions.length) startTimers();
+}
+init();
+
+/* Save periodically */
+setInterval(()=>{ saveState(); },5000);
+</script>
 </body>
 </html>
