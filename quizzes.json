@@ -1,0 +1,609 @@
+[
+  {
+    "id": "67cf9f36-c43f-4e75-b54b-0ae6e141c7d6",
+    "title": "1.pdf",
+    "source": "F:/Questions/Test/AITS/1.pdf",
+    "questions": [
+      {
+        "id": "9e643750-75cc-4686-a8d6-9c930c2bfded",
+        "text": "Along the positive x-axis, the acceleration of a",
+        "options": [
+          "Along the positive x-axis, the acceleration of a",
+          "1.5 m/s (2) 2 m/s",
+          "2.5 m/s (4) 3 m/s"
+        ],
+        "correctIndex": null,
+        "raw": "1. Along the positive x-axis, the acceleration of a\nsmall stone changes with its position as illustrated.\nAt x = 10 cm, the stone’s speed is measured to be\n1 m/s. What will be its speed upon reaching x = 50\ncm?\n(1) 1.5 m/s (2) 2 m/s\n(3) 2.5 m/s (4) 3 m/s"
+      },
+      {
+        "id": "f7cf1d6e-7ad5-44ff-8d3d-ba3c988a8fde",
+        "text": "In an experiment it is well known that pressure P",
+        "options": [
+          "In an experiment it is well known that pressure P",
+          "10 N (2) 0.9 N",
+          "1 N (4) 9 N"
+        ],
+        "correctIndex": null,
+        "raw": "2. In an experiment it is well known that pressure P\ndepends on F and l only. A student writes the\nformula for pressure as\n[3]\nP = k\nF\n3 l\n,\nmeter for length, and 5 minute for time. The value\nof 9000 Jeet is\n(1) 10 N (2) 0.9 N\n(3) 1 N (4) 9 N"
+      },
+      {
+        "id": "e658db9b-0cc8-44b3-bf8e-b32f9a00fead",
+        "text": "If Planck’s constant h, the speed of light c, and",
+        "options": [
+          "If Planck’s constant h, the speed of light c, and",
+          "The expression is dimensionally correct",
+          "For expression to be dimensionally correct",
+          "For expression to be dimensionally correct",
+          "For expression to be dimensionally correct"
+        ],
+        "correctIndex": null,
+        "raw": "5. If Planck’s constant h, the speed of light c, and\ngravitational constant G are combined to form a\nquantity with dimensions of length (Planck\nlength), its value is proportional to (Given\nhc\nEnergy, E = , and\n\nwhere F is force,\nl is a certain length and k is a known\ndimensionless constant. Which statement is\ncorrect?\n(1) The expression is dimensionally correct.\n(2) For expression to be dimensionally correct\nthe power of l should be 2, not 3.\n(3) For expression to be dimensionally correct\nthe power of l should be –2, not 3.\n(4) For expression to be dimensionally correct\nthe power of l should be –1, not 3."
+      },
+      {
+        "id": "a4dc38c2-ad07-470d-ba62-5ad2c9a226b2",
+        "text": "Match the following. It is known that electric",
+        "options": [
+          "Match the following. It is known that electric",
+          "P R Q S",
+          "Q R P S",
+          "P Q R S",
+          "Q R S P"
+        ],
+        "correctIndex": null,
+        "raw": "3. Match the following. It is known that electric\npotential is work done per unit charge,\ncapacitance is charge per unit electric potential\nand [inductance] [current]2 = [work done].\nColumn- I Column-II\nA Electric potential P [ML2T–2A–2]\nB Resistance Q [ML2T–3A–1]\nC Capacitance R [ML2T–3A–2]\nD Inductance S [M–1L–2T 4A2]\nA B C D\n(1) P R Q S\n(2) Q R P S\n(3) P Q R S\n(4) Q R S P"
+      },
+      {
+        "id": "e17b77fb-c6f7-40eb-a66e-c83df95517e1",
+        "text": "PW proposed a new system of units in which unit",
+        "options": [
+          "PW proposed a new system of units in which unit",
+          "(2"
+        ],
+        "correctIndex": null,
+        "raw": "4. PW proposed a new system of units in which unit\nof force is Jeet. This system defines its\nfundamental units as 100 grams for mass, 100\nF =\nG m\nr\nm\n12 2 where λ is\nwavelength of light and other symbols have usual\nmeaning)\nhG h\n(1) (2)\nc3 Gc3\n(3)\nh 2 G\n5 c\nhG2\n(4)\nc7"
+      },
+      {
+        "id": "199a368d-083c-461d-8e41-7642dfa1e85f",
+        "text": "For the equation z = P s i n",
+        "options": [
+          "For the equation z = P s i n",
+          "The dimensions of Q match those of R",
+          "The dimensions of R match those of P",
+          "The product QR shares dimensions with yτ",
+          "The product PQR shares dimensions with τ"
+        ],
+        "correctIndex": null,
+        "raw": "7. For the equation z = P s i n\n \nQ\n− R y\n\n, where y and\nz denote displacement and τ represents time,\nassuming the dimensional consistency of the\nterms,\n(1) The dimensions of Q match those of R.\n(2) The dimensions of R match those of P.\n(3) The product QR shares dimensions with yτ.\n(4) The product PQR shares dimensions with τ."
+      },
+      {
+        "id": "2ffdd6cf-ea55-4b33-914e-2a6ea8027aae",
+        "text": "A particle starts moving at t = 0 along a straight",
+        "options": [
+          "A particle starts moving at t = 0 along a straight",
+          "t = 1s and t = 2s (2) t = 2s and t = 3s",
+          "t = 1s and t = 3s (4) t = 0s and t = 2s"
+        ],
+        "correctIndex": null,
+        "raw": "8. A particle starts moving at t = 0 along a straight\nline such that its position is given by\nx(t) = 2t3 – 9t 2 + 12t + 5 (where x is in meters and\nt is in seconds). The particle momentarily comes\nto rest at:\n(1) t = 1s and t = 2s (2) t = 2s and t = 3s\n(3) t = 1s and t = 3s (4) t = 0s and t = 2s"
+      },
+      {
+        "id": "122a6141-a1e3-4d3c-aaf0-448afb2ec6ac",
+        "text": "In order to estimate the visibility distance x of a",
+        "options": [
+          "In order to estimate the visibility distance x of a",
+          "1 (2) – 1",
+          "–3 (4) 3"
+        ],
+        "correctIndex": null,
+        "raw": "9. In order to estimate the visibility distance x of a\nlight in mist, a researcher concludes that it\ndepends on mist’s mass density ρ, light intensity S\n(Power per Area), and frequency f. Given that x is\nproportional to f a, the value of a is\n(1) 1 (2) – 1\n(3) –3 (4) 3\n\n--- PAGE 4 (text) ---"
+      },
+      {
+        "id": "b68ced9c-adf8-44a2-9616-674ffc71ff77",
+        "text": "A thin wire’s mass is recorded as (2 ± 0.04) kg,",
+        "options": [
+          "A thin wire’s mass is recorded as (2 ± 0.04) kg,",
+          "007) m. The highest possible percentage error in",
+          "2% (2) 4%",
+          "3.5% (4) 3%"
+        ],
+        "correctIndex": null,
+        "raw": "11. A thin wire’s mass is recorded as (2 ± 0.04) kg,\nradius as (0.6 ± 0.003) cm, and length as (0.7 ±\n0.007) m. The highest possible percentage error in\ncalculating its density is:\n(1) 2% (2) 4%\n(3) 3.5% (4) 3%"
+      },
+      {
+        "id": "a3ab9a0d-6987-4471-87a6-f75779c717ea",
+        "text": "From the velocity-time graph provided, compute",
+        "options": [
+          "From the velocity-time graph provided, compute",
+          "(4) 1"
+        ],
+        "correctIndex": null,
+        "raw": "12. From the velocity-time graph provided, compute\nthe ratio of displacements during intervals OP and\nPQ.\n(1)\n2\n3\n(2)\n1\n2\n1\n(3) (4) 1\n3"
+      },
+      {
+        "id": "80797f0c-95ad-4d7d-95fd-954d0899552a",
+        "text": "A bus moves at a steady speed u. The driver",
+        "options": [
+          "A bus moves at a steady speed u. The driver",
+          "Statement-I is incorrect but Statement-II is",
+          "Both Statement-I and Statement-II are false"
+        ],
+        "correctIndex": 1,
+        "raw": "13. A bus moves at a steady speed u. The driver\nnotices another bus ahead, moving at speed\nv (< u) in the same direction, separated by\ndistance x. The least deceleration required to\nprevent collision is:\n(1)\n( u +\nx\nv ) 2\n(2)\n( u −\nx\nv ) 2\n(3)\n( u +\n2\nv\nx\n) 2\n(3) Statement-I is incorrect but Statement-II is\ntrue.\n(4) Both Statement-I and Statement-II are false."
+      },
+      {
+        "id": "138f218f-5e24-41df-a180-6177a0898482",
+        "text": "A small block moves with uniform acceleration,",
+        "options": [
+          "A small block moves with uniform acceleration,",
+          "a (q – r) + b (r – p) + c (p – q) = 0",
+          "a (q + r) + b (r + p) + c (p + r) = 0",
+          "a (q – r) – b (r – p) – c (p – r) = 0",
+          "b (q – r) + c (r – p) + a (p – q) = 0"
+        ],
+        "correctIndex": null,
+        "raw": "15. A small block moves with uniform acceleration,\ntraversing distances a, b, and c in the pth, qth, and\nrth seconds, respectively. The correct relationship\nis:\n(1) a (q – r) + b (r – p) + c (p – q) = 0\n(2) a (q + r) + b (r + p) + c (p + r) = 0\n(3) a (q – r) – b (r – p) – c (p – r) = 0\n(4) b (q – r) + c (r – p) + a (p – q) = 0"
+      },
+      {
+        "id": "17d41739-36e4-48ed-bc0a-fbd6896a335f",
+        "text": "When a potential difference of V = (10 ± 0.1) V",
+        "options": [
+          "When a potential difference of V = (10 ± 0.1) V",
+          "2) A flows in the resistor. The value of",
+          "(2.5 ± 0.05) ",
+          "(2.5 ± 0.10) ",
+          "(2.5 ± 0.20) ",
+          "(2.5 ± 0.15) "
+        ],
+        "correctIndex": null,
+        "raw": "16. When a potential difference of V = (10 ± 0.1) V\nis applied across a resistor R, a current of I = (4 ±\n0.2) A flows in the resistor. The value of\nresistance R is:\n(1) (2.5 ± 0.05) \n(2) (2.5 ± 0.10) \n(3) (2.5 ± 0.20) \n(4) (2.5 ± 0.15) "
+      },
+      {
+        "id": "5ed4d99f-4d4d-4d6f-b668-4ae6e3c1239f",
+        "text": "Given below are two statements:",
+        "options": [
+          "Given below are two statements:",
+          "Both Statement-I and Statement-II are true",
+          "Statement-I is correct but Statement-II is",
+          "6 0 m / s",
+          "5 0 m / s",
+          "9 0 m / s"
+        ],
+        "correctIndex": 0,
+        "raw": "14. Given below are two statements:\nStatement-I: Area under acceleration time graph\nfrom time 0 to time t gives the final velocity at time t.\nStatement-II: Slope of displacement-time graph\nat any time t gives the average velocity from time\n0 to time t.\nIn the light of given statements, choose the correct\nanswer from the options given below.\n(1) Both Statement-I and Statement-II are true.\n(2) Statement-I is correct but Statement-II is\nfalse.\n8 0 m / s\n(2) 6 0 m / s\n(3) 5 0 m / s\n(4) 9 0 m / s"
+      },
+      {
+        "id": "2f1301d8-6ae8-4029-8084-828374aab1fc",
+        "text": "A particle starts from rest at t = 0 and moves with",
+        "options": [
+          "A particle starts from rest at t = 0 and moves with",
+          "2 m/s (2) 4 m/s",
+          "6 m/s (4) 8 m/s"
+        ],
+        "correctIndex": null,
+        "raw": "18. A particle starts from rest at t = 0 and moves with\nacceleration a = (4 – 2t) m/s2 (where t is in\nseconds). The maximum positive valued velocity\nattained by the particle during its motion is:\n(1) 2 m/s (2) 4 m/s\n(3) 6 m/s (4) 8 m/s"
+      },
+      {
+        "id": "a84a888f-4c17-4835-b12e-91eb5df6abde",
+        "text": "Once propulsion is disengaged, a marine vessel",
+        "options": [
+          "Once propulsion is disengaged, a marine vessel",
+          "(2",
+          "ue–bt (4"
+        ],
+        "correctIndex": null,
+        "raw": "19. Once propulsion is disengaged, a marine vessel\nexperiences a deceleration described by the\ndv\nrelation =−bv2,where b is a fixed parameter.\ndt\nIf the velocity at the instant of engine shutdown is\nu, the expression for its speed as a function of\nelapsed time t is\nu u\n(1) (2)\n1+2u2bt 1+ubt\nu\n(3) ue–bt (4)\n2u2bt+1\n\n--- PAGE 5 (text) ---"
+      },
+      {
+        "id": "78a0c979-5ee3-4c13-ae59-eb66a02141a3",
+        "text": "A particle moves along a straight line such that its",
+        "options": [
+          "A particle moves along a straight line such that its",
+          "18 m/s² (2) 36 m/s²",
+          "54 m/s² (4) 72 m/s²"
+        ],
+        "correctIndex": null,
+        "raw": "20. A particle moves along a straight line such that its\nvelocity v at position x is given by v² = 4x³ + 16.\nFind the acceleration of the particle when it\nreaches x = 3 m. (All units in SI)\n(1) 18 m/s² (2) 36 m/s²\n(3) 54 m/s² (4) 72 m/s²\nInteger Type Questions"
+      },
+      {
+        "id": "cde63845-c501-464e-b050-0fe1454a9e59",
+        "text": "For He+ ion in 1st excited state, select the correct (3) 40 (4) 60",
+        "options": [
+          "For He+ ion in 1st excited state, select the correct (3) 40 (4) 60",
+          "P, Q, R (2) P, Q only then atomic mass of elements respectively (in",
+          "Q, R only (4) P only amu",
+          "8.5, 9.5 (2) 9.5, 10.5"
+        ],
+        "correctIndex": 2,
+        "raw": "26. For He+ ion in 1st excited state, select the correct (3) 40 (4) 60\nstatement(s):\n(P) P.E. in 1st excited state is – 13.6 eV 28. Average atomic mass of a mixture containing\n(Q) K.E. in 1st excited state is 13.6 eV two elements having successive atomic masses\n(R) Total energy in 1st excited state is – 13.6 eV differing by 1 u and equal mole fractions is 10,\n(1) P, Q, R (2) P, Q only then atomic mass of elements respectively (in\n(3) Q, R only (4) P only amu).\n(1) 8.5, 9.5 (2) 9.5, 10.5"
+      },
+      {
+        "id": "a1b25c20-4d4d-4b76-87ed-29dd328c7a39",
+        "text": "Consider the following graph between the (3) 9, 10 (4) 8, 9",
+        "options": [
+          "Consider the following graph between the (3) 9, 10 (4) 8, 9",
+          "1 : 1 (2) 2 : 1",
+          "1 : 2 (4) 2 : 3"
+        ],
+        "correctIndex": null,
+        "raw": "27. Consider the following graph between the (3) 9, 10 (4) 8, 9\nnumber of N-atoms in a compound vs weight of\nthe compound. 29. L = orbit angular momentum for nth orbit of\nn, z\nhydrogen and hydrogen like species then\nL\n2,2\ncalculate ratio of\nL\n3,3\n(1) 1 : 1 (2) 2 : 1\n(3) 1 : 2 (4) 2 : 3"
+      },
+      {
+        "id": "d15ca397-8f56-4014-9fa7-638bbf663336",
+        "text": "A sample of carbon contains C12 and C14",
+        "options": [
+          "A sample of carbon contains C12 and C14",
+          "2.5% (2) 3%",
+          "4% (4) 5%"
+        ],
+        "correctIndex": null,
+        "raw": "30. A sample of carbon contains C12 and C14\nIf the number of \"N\" atoms per formula unit of\nisotopes. If the average number of neutrons per\nthe compound is 3, the formula weight of the\natom is 6.08, the mole percentage of C14 isotope is\nsubstance will be\n(1) 2.5% (2) 3%\n[Given : N = 6 × 1023]\nA\n(3) 4% (4) 5%\n\n--- PAGE 6 (text) ---"
+      },
+      {
+        "id": "372ebce6-5871-45f1-bf38-441a424b6dea",
+        "text": "Find [VD] of a gaseous mixture of O and O .",
+        "options": [
+          "Find [VD] of a gaseous mixture of O and O",
+          "Group : 1 (2) Group : 14",
+          "Group : 13 (4) Group : 15"
+        ],
+        "correctIndex": null,
+        "raw": "31. Find [VD] of a gaseous mixture of O and O .\nmix 3 2\nMolar ratio of O to O is 2 : 3 3 2\n(1)\n[6]\n2 0\n5\n8\n(2)\n9 6\n5\n(3)\n1 0\n5\n4\n(4)\n1 9\n5\n2\nThe above graph is correct for which group of\nperiodic table.\n(1) Group : 1 (2) Group : 14\n(3) Group : 13 (4) Group : 15"
+      },
+      {
+        "id": "cb066c19-e862-45c2-b368-28f5cc1de34a",
+        "text": "Total number of nodes in 4p orbital is",
+        "options": [
+          "Total number of nodes in 4p orbital is",
+          "2 (2) 3 now becomes 2.6 litre (All the volumes are",
+          "1 (4) 4 measured under same conditions). The"
+        ],
+        "correctIndex": null,
+        "raw": "32. Total number of nodes in 4p orbital is\nx\n(1) 2 (2) 3 now becomes 2.6 litre (All the volumes are\n(3) 1 (4) 4 measured under same conditions). The\npercentage of CO in mixture is\n2"
+      },
+      {
+        "id": "f2ce8371-374d-436c-8243-fe4d4e908785",
+        "text": "Ay & Bq are isobars, while Cn is isotone with Ay",
+        "options": [
+          "Ay & Bq are isobars, while Cn is isotone with Ay",
+          "40% (4) 50%",
+          "y = (n – m) (2) n = q – x + m",
+          "x = p (4) (y – x) = (q – p"
+        ],
+        "correctIndex": 2,
+        "raw": "33. Ay & Bq are isobars, while Cn is isotone with Ay\nx p m x (1) 30% (2) 60%\nSelect the correct option\n(3) 40% (4) 50%\n(1) y = (n – m) (2) n = q – x + m\n(3) x = p (4) (y – x) = (q – p)"
+      },
+      {
+        "id": "afc2f810-0b4d-4bf9-897f-9079e42d7c9d",
+        "text": "Match the following",
+        "options": [
+          "Match the following",
+          "R S Q P",
+          "S Q P R",
+          "P Q S R",
+          "R S P Q"
+        ],
+        "correctIndex": null,
+        "raw": "34. Match the following\nColumn-I Column-II\nA 4 P Number of nodes in 3s\nB 5 Q Number of sub-shells in third\nenergy level\nC 3 R Number of unpaired electron in\nFe2+\nD 2 S Number of electrons with n = 3\nin an atom of phosphorus.\nA B C D\n(1) R S Q P\n(2) S Q P R\n(3) P Q S R\n(4) R S P Q"
+      },
+      {
+        "id": "17646a64-e571-4195-a93c-96a0bb9bc1ef",
+        "text": "In an experiment, 13.35 g of AlCl was produced",
+        "options": [
+          "In an experiment, 13.35 g of AlCl was produced",
+          "0.1; 0.1 (2) 0.155; 0.155",
+          "0.113; 0.15 (4) 0.155; 0.1"
+        ],
+        "correctIndex": null,
+        "raw": "35. In an experiment, 13.35 g of AlCl was produced\n3\nand 0.35 g Al remained unreacted. How many\nmoles of Al and Cl , respectively, were taken\n2\noriginally (Al = 27, Cl = 35.5) ?\n(1) 0.1; 0.1 (2) 0.155; 0.155\n(3) 0.113; 0.15 (4) 0.155; 0.1"
+      },
+      {
+        "id": "0e646f19-689e-412e-847f-412d7a024da4",
+        "text": "Which of the following order is CORRECT for",
+        "options": [
+          "Which of the following order is CORRECT for",
+          "C > Si > Ge > Sn > Pb (Ionization energy",
+          "S > O > Se > Te (Electron gain enthalpy",
+          "SiO > Al O > MgO (Basic character",
+          "Cl O > N O > P O (acidic character"
+        ],
+        "correctIndex": null,
+        "raw": "36. Which of the following order is CORRECT for\nindicate property ?\n(1) C > Si > Ge > Sn > Pb (Ionization energy)\n(2) S > O > Se > Te (Electron gain enthalpy)\n(3) SiO > Al O > MgO (Basic character)\n2 2 3\n(4) Cl O > N O > P O (acidic character)\n2 7 2 5 4 10"
+      },
+      {
+        "id": "06243e8d-0eb4-4f20-b5d8-8ff8cea89c1e",
+        "text": "Carefully observe the following graph.",
+        "options": [
+          "Carefully observe the following graph",
+          "2 + 1 (2) 2n2",
+          "n2 (4) 2(2 + 1"
+        ],
+        "correctIndex": null,
+        "raw": "37. Carefully observe the following graph.\n(A,B,C,D,E are elements of one group)\nm\ns\n= +\n1\n2\nwill be: (m = Spin quantum number)\ns\n(1) 2 + 1 (2) 2n2\n(3) n2 (4) 2(2 + 1)"
+      },
+      {
+        "id": "d6ff0992-3371-443d-97b0-e450f22d6703",
+        "text": "Which of the following set of elements have",
+        "options": [
+          "Which of the following set of elements have",
+          "(S, Na, F) (2) (S, Cl, Ne",
+          "(S, Sb, Cl) (4) (F, P, Se"
+        ],
+        "correctIndex": null,
+        "raw": "40. Which of the following set of elements have\nmost negative electron gain enthalpy in their\nrespective groups. (Check till 5th period)\n(1) (S, Na, F) (2) (S, Cl, Ne)\n(3) (S, Sb, Cl) (4) (F, P, Se)"
+      },
+      {
+        "id": "f2e39d6e-28c5-42de-bbca-d06db6dabb3e",
+        "text": "\"X\" mL of a 50% alcohol by weight (d = 0.6",
+        "options": [
+          "\"X\" mL of a 50% alcohol by weight (d = 0.6",
+          "60 (2) 64",
+          "88 (4) 128"
+        ],
+        "correctIndex": null,
+        "raw": "41. \"X\" mL of a 50% alcohol by weight (d = 0.6\ngm/mL) must be completely used to prepare 200\nml of 24% alcohol by weight (d = 0.8 gm/mL).\nThen the value of \"X\" will be :\n(1) 60 (2) 64\n(3) 88 (4) 128"
+      },
+      {
+        "id": "fd08703e-5c90-4e36-84f9-d2efca5b7c0f",
+        "text": "300 gm, 40% (w/w) NaOH solution is mixed",
+        "options": [
+          "300 gm, 40% (w/w) NaOH solution is mixed",
+          "1 gm/mL",
+          "2 gm/mL",
+          "2.5 gm/mL",
+          "3 gm/mL"
+        ],
+        "correctIndex": null,
+        "raw": "42. 300 gm, 40% (w/w) NaOH solution is mixed\nwith 500 gm 30% (w/w) NaOH solution. The\nresulting solution has the percentage (w/v) of\nNaOH of 67.5% The density of the final solution\nis\n(1) 1 gm/mL\n(2) 2 gm/mL\n(3) 2.5 gm/mL\n(4) 3 gm/mL"
+      },
+      {
+        "id": "fcdf0e06-e987-4654-964b-c69b11c2e064",
+        "text": "Which of the following element does not show",
+        "options": [
+          "Which of the following element does not show",
+          "Fluorine (F",
+          "Sulphur (S",
+          "Iodine (I",
+          "Phosphorus (P"
+        ],
+        "correctIndex": null,
+        "raw": "43. Which of the following element does not show\nvariable covalency?\n(1) Fluorine (F)\n(2) Sulphur (S)\n(3) Iodine (I)\n(4) Phosphorus (P)\n\n--- PAGE 7 (text) ---"
+      },
+      {
+        "id": "5b749fde-555a-4a0f-9104-64970226dab7",
+        "text": "Which of the following can be CORRECT set",
+        "options": [
+          "Which of the following can be CORRECT set",
+          "n = 4; l = 0; m = 0; s = +",
+          "n = 3; l = 1; m = 0; s = +",
+          "n = 3; ł =2; m = –1; s= +",
+          "n = 3; l = 2; m = –3; s = +"
+        ],
+        "correctIndex": null,
+        "raw": "44. Which of the following can be CORRECT set\nof quantum numbers for the last electron enters\nin ꞌS' (sulphur atom).\n(1) n = 4; l = 0; m = 0; s = +\n[7]\n1\n2\n1\n(2) n = 3; l = 1; m = 0; s = +\n2\n1\n(3) n = 3; ł =2; m = –1; s= +\n2\n(4) n = 3; l = 2; m = –3; s = +\n1\n2"
+      },
+      {
+        "id": "656f6fed-cf5e-4e55-8612-53ad7d677cb9",
+        "text": "How many of the following have",
+        "options": [
+          "How many of the following have",
+          "1 (2) 6",
+          "2 (4) 3"
+        ],
+        "correctIndex": null,
+        "raw": "45. How many of the following have\nelectronegativity less than oxygen\nF, C, N, Be, B, Na, Mg\n(1) 1 (2) 6\n(3) 2 (4) 3\nInteger Type Questions"
+      },
+      {
+        "id": "fc8acf94-b75e-44d8-ae74-f8273254502a",
+        "text": "If the difference in the atomic numbers of Fe and",
+        "options": [
+          "If the difference in the atomic numbers of Fe and",
+          "Li(g) + e– → Li(g)–",
+          "Be(g) + e– → Be(g)–",
+          "Mg(g) + e– → Mg(g)–"
+        ],
+        "correctIndex": null,
+        "raw": "46. If the difference in the atomic numbers of Fe and\nAl is ‘n’, then ‘2n’ is________.\nN ( g ) + e − → N ( g ) −\n(B) Li(g) + e– → Li(g)–\n(C) Be(g) + e– → Be(g)–\n(D) Mg(g) + e– → Mg(g)–\n(E) B(g) + e– → B(g)–\n(F) B e ( g ) − + e − → B e ( g ) 2 −\n(H) P(g) + e– → P(g)–"
+      },
+      {
+        "id": "62bdfe96-880e-494b-9acd-5ec88a019c7a",
+        "text": "The complete set of values of k for which the",
+        "options": [
+          "The complete set of values of k for which the",
+          "x  [–4, 3] (2) x  [–19, 13]",
+          "x  [–3, 4] (4) x  [–13, 19]",
+          "[4, ) (2) (4, ",
+          "(6, ) (4) [6, "
+        ],
+        "correctIndex": null,
+        "raw": "51. The complete set of values of k for which the\n3| – 4|  12 is\nequation |3x + 2| + |3x – 2| + |x + 1| + |x – 1| = k\n(1) x  [–4, 3] (2) x  [–19, 13]\nhas exactly two solution is\n(3) x  [–3, 4] (4) x  [–13, 19]\n(1) [4, ) (2) (4, )\n(3) (6, ) (4) [6, )"
+      },
+      {
+        "id": "ccf4a851-10aa-4d8b-8a3b-9b37e889367b",
+        "text": "The number of solutions of sin   + 2018 x =",
+        "options": [
+          "The number of solutions of sin   + 2018 x =",
+          "1 (2) 2",
+          "3 (4) 0"
+        ],
+        "correctIndex": null,
+        "raw": "52. The number of solutions of sin   + 2018 x =\n2\nx2 + (1009)2 + π must be\n(1) 1 (2) 2\n(3) 3 (4) 0"
+      },
+      {
+        "id": "b5fa4791-aeed-427b-9cc1-a63ebaf810b0",
+        "text": "Consider the statements on sets A, B and C",
+        "options": [
+          "Consider the statements on sets A, B and C",
+          "S-1 and S-3 only",
+          "S-2 only",
+          "S-2 and S-3 only",
+          "S-1 and S-2 only",
+          "FFT (2) FTT",
+          "TFT (4) FTF"
+        ],
+        "correctIndex": null,
+        "raw": "53. Consider the statements on sets A, B and C\nS-1: A−B=\n((AB)−(B−A))\n−(AB)\nS-2: A=(AB)(A−B)\nS-3: A−(ABC)=(A−B)(A−C)\nWhich of following correct?\n(1) S-1 and S-3 only\n(2) S-2 only\n(3) S-2 and S-3 only\n(4) S-1 and S-2 only\nS\n1\n: lo g\nx\n3  lo g\nx\n2 is true for all values of\nx  (0, 1)  (1 ,  )\nS : x−2 =log x12, then x is 6, –2.\n2 x3\nS\n3\n: lo g\n2 5\n( 2 + t a n 2  ) = 0 .5 ,\n4\nthen  may be or\n3\n2 \n3\nState, in order, whether S , S , S are true(T) or\n1 2 3\nfalse (F)\n(1) FFT (2) FTT\n(3) TFT (4) FTF"
+      },
+      {
+        "id": "7988f399-e12a-46c7-bacb-60217f3e8361",
+        "text": "The value of expression",
+        "options": [
+          "The value of expression",
+          "2 (2) 4",
+          "6 (4) 8"
+        ],
+        "correctIndex": null,
+        "raw": "56. The value of expression\n(1+tan16º)(1+cot61º)(1+cot45º)\n(1+cot63º)(1+tan18º)\n(1) 2 (2) 4\n(3) 6 (4) 8\n\n--- PAGE 8 (text) ---"
+      },
+      {
+        "id": "aba127e2-d96c-4012-87cf-e2ebf6ebc016",
+        "text": "If P(X) represents the power-set of set X, then",
+        "options": [
+          "If P(X) represents the power-set of set X, then",
+          "4 (2) 24",
+          "216 (4) 28"
+        ],
+        "correctIndex": null,
+        "raw": "57. If P(X) represents the power-set of set X, then\nn(P(P(P(P(P(ϕ)))))) (where  represents the null\nset) is\n(1) 4 (2) 24\n(3) 216 (4) 28"
+      },
+      {
+        "id": "65506de9-3693-4f76-9419-138b1cde14bc",
+        "text": "The maximum value of 8sin2x + 6sinx cosx –",
+        "options": [
+          "The maximum value of 8sin2x + 6sinx cosx –",
+          "11 (2) 13"
+        ],
+        "correctIndex": null,
+        "raw": "58. The maximum value of 8sin2x + 6sinx cosx –\n4cos2x + 1 is\n(1) 11 (2) 13\n(3)\n[8]\n3 ( 5 − 1 ) (4) 3 ( 5 + 1 )"
+      },
+      {
+        "id": "cea5da12-7726-46fa-9716-262b9f1ffd54",
+        "text": "If s i n",
+        "options": [
+          "If s i n",
+          "(4"
+        ],
+        "correctIndex": null,
+        "raw": "59. If s i n\n  c o\n2\ns  \n− c o s\n  s i\n2\nn  \n= 0 then the value\nof θ in the interval (0, π) is\n(1)\n\n2\n(2)\n\n4\n \n(3) (4)\n6 3"
+      },
+      {
+        "id": "2c2e1680-b7bf-4e2f-bc64-413f58882fd2",
+        "text": "Number of negative real roots of the equation x +",
+        "options": [
+          "Number of negative real roots of the equation x +",
+          "0 (2) 1",
+          "2 (4) 3"
+        ],
+        "correctIndex": null,
+        "raw": "60. Number of negative real roots of the equation x +\n1 – 2 log (2x + 3) + log (10 – 2–x) = 0 is\n2 2\n(1) 0 (2) 1\n(3) 2 (4) 3"
+      },
+      {
+        "id": "5391b4e4-dcd5-4bdc-86be-3c7e5ed765b4",
+        "text": "Let the number N = 8 7 a 2 7 9 3 1 b, where a, b",
+        "options": [
+          "Let the number N = 8 7 a 2 7 9 3 1 b, where a, b",
+          "least value of a is 0",
+          "Number of values of a is 7",
+          "least value of a is 2",
+          "Number of values of a is 6"
+        ],
+        "correctIndex": null,
+        "raw": "61. Let the number N = 8 7 a 2 7 9 3 1 b, where a, b\nare single digit whole numbers.\nIf N is divisible by 12 but not divisible by 8 then\n(1) least value of a is 0\n(2) Number of values of a is 7\n(3) least value of a is 2\n(4) Number of values of a is 6"
+      },
+      {
+        "id": "fbebf010-bba7-452b-b642-7a4e3bfd85dd",
+        "text": "Let A , A , …., A are sets such that",
+        "options": [
+          "Let A , A , …., A are sets such that",
+          "8 (2) 3",
+          "7 (4) 15"
+        ],
+        "correctIndex": null,
+        "raw": "62. Let A , A , …., A are sets such that\n1 2 100\nn(A) = n(A ) + 1,\ni i – 1\nA\n1\n A\n2\n A\n3\n...  A\n1 0 0\n. If A\n1\nis a singleton set and\n1 0\ni=\n0\n3\nA\ni\n= A , then number of\nproper subsets of A is\n(1) 8 (2) 3\n(3) 7 (4) 15"
+      },
+      {
+        "id": "6a7458aa-c320-4a8a-9563-510eea708808",
+        "text": "If x2 + y2 = 9 then maximum value of 4x + 3y is",
+        "options": [
+          "If x2 + y2 = 9 then maximum value of 4x + 3y is",
+          "25 (2) 5",
+          "9 (4) 15"
+        ],
+        "correctIndex": null,
+        "raw": "64. If x2 + y2 = 9 then maximum value of 4x + 3y is\n(1) 25 (2) 5\n(3) 9 (4) 15"
+      },
+      {
+        "id": "5f5452a9-4df9-49ee-a901-27e40b91fcaf",
+        "text": "Match the following columns and choose correct",
+        "options": [
+          "Match the following columns and choose correct",
+          "3 (2) 6",
+          "9 (4) 4",
+          "Q S R P",
+          "Q T T S",
+          "R S S T",
+          "Q T T P"
+        ],
+        "correctIndex": 2,
+        "raw": "65. Match the following columns and choose correct\noption\nColumn-I Column-II\nA  2  P 1\n2log\n2 \n 5\n(log 20) + (log 5)2 is 2 2\nequal to\nB If x = a is solution of the Q 4\nequation log (2x+3) –\n6\nlog (3x – 2) = x then the\n6\nvalue of 9a is\nC\nthen\n32\nx \n +1  equals\n2 \n(1) 3 (2) 6\n(3) 9 (4) 4\nlo g 36 4 + 2 4 lo g\n6\n2 \nlo g\n6\n3\nR 8\n+ log39 is equal\n6\nto\nD If a, b, c  R and\n4 a 2 + 9 b 2\nS 16\n+ c2 + 4a –\n6b – 4c + 6 = 0 then 4a +\n3b + c is equal to\nT 27\nA B C D\n(1) Q S R P\n(2) Q T T S\n(3) R S S T\n(4) Q T T P\ncos5ºcos55ºcos65º"
+      },
+      {
+        "id": "56b062e4-1010-4ca8-9fe4-44842ff780a1",
+        "text": "If =a 3+b then value of",
+        "options": [
+          "If =a 3+b then value of",
+          "–1 (2) 2",
+          "3 (4"
+        ],
+        "correctIndex": null,
+        "raw": "66. If =a 3+b then value of\nsin5ºsin55ºsin65º\na+b is\n(1) –1 (2) 2\n(3) 3 (4)\n1\n3"
+      },
+      {
+        "id": "9174c681-56a1-4b17-b794-38352db17403",
+        "text": "An club awarded 48 prizes in dance, 25 in golf",
+        "options": [
+          "An club awarded 48 prizes in dance, 25 in golf",
+          "15 (2) 10",
+          "36 (4) 26"
+        ],
+        "correctIndex": null,
+        "raw": "67. An club awarded 48 prizes in dance, 25 in golf\nand 18 in drama. If these prizes went to total 60\nmembers and only five members got prizes in all\nthree events then how many received prizes in\natleast two of three events.\n(1) 15 (2) 10\n(3) 36 (4) 26"
+      },
+      {
+        "id": "119308ac-0c82-4f84-9a44-e56a520f2c33",
+        "text": "If n (A  B) = 8 then n (A  B) is",
+        "options": [
+          "If n (A  B) = 8 then n (A  B) is",
+          "57 (2) 55",
+          "65 (4) Data inappropriate"
+        ],
+        "correctIndex": null,
+        "raw": "55. If n (A  B) = 8 then n (A  B) is\n(1) 57 (2) 55\n(3) 65 (4) Data inappropriate\n\n--- PAGE 9 (text) ---"
+      },
+      {
+        "id": "110c5a49-27d3-42e5-8130-d8d65bd5ee50",
+        "text": "If",
+        "options": [
+          "If",
+          "– 2 (2) 3",
+          "−",
+          "1"
+        ],
+        "correctIndex": null,
+        "raw": "69. If\n[9]\ns i n   c o s  , c o s   −\n1\n2\nand 0    2  , then\nmaximum value of 2 c o s\n\n +\n\n3\n\nis\n(1) – 2 (2) 3\n(3) −\n1\n2\n(4) 1"
+      },
+      {
+        "id": "a52ccc8b-08f9-456d-8fcd-d159903055f8",
+        "text": "Statement-1 : Minimum value of |x – 2| + |x – 5|",
+        "options": [
+          "Statement-1 : Minimum value of |x – 2| + |x – 5|",
+          "Statement-1 is True, Statement-2 is True;",
+          "Statement-1 is True, Statement-2 is True;",
+          "Statement-1 is True, Statement-2 is False",
+          "Statement-1 is False, Statement-2 is True"
+        ],
+        "correctIndex": null,
+        "raw": "70. Statement-1 : Minimum value of |x – 2| + |x – 5|\n+ |x + 3| is 8.\nStatement-2 : If a < b < c, then the minimum\nvalue of |x – a| + |x – b| + |x – c| is |b – a| + |b – c|.\n(1) Statement-1 is True, Statement-2 is True;\nStatement-2 is a correct explanation for\nStatement1.\n(2) Statement-1 is True, Statement-2 is True;\nStatement-2 is NOT a correct explanation for\nStatement-1\n(3) Statement-1 is True, Statement-2 is False\n(4) Statement-1 is False, Statement-2 is True\nInteger Type Questions"
+      }
+    ]
+  }
+]
